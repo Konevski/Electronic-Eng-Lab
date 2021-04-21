@@ -1,1 +1,1 @@
-# HW-SW Codesign
+Electronic Engineering Lab
