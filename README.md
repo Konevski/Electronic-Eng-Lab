@@ -1,5 +1,5 @@
 # Electronic Engineering Lab
-### We are simulating an ideal environment, no unexpected failures
+### _We are simulating an ideal environment, no unexpected failures_
 
 # Full delineation at:
 https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e651a874df571318d78aaab
