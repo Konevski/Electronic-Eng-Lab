@@ -1,10 +1,10 @@
 # Electronic Engineering Lab
 ### _We are simulating an ideal environment, no unexpected failures_
 
-# Full delineation at:
+## Full delineation at:
 https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e651a874df571318d78aaab
 
-# Requirements:
+## Requirements:
 ### Road:
   - Must have stripes to lead the cars to their own trajectory
   - Must have a 4 way cross section
@@ -28,7 +28,7 @@ https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e6
 - No pedestrians
 
 
-# Functionality:
+## Functionality:
 1. Communication Post functionality:
   a. detects the cars at the Blue Line
   b. communication post receives the cars destination
