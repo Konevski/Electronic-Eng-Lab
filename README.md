@@ -30,12 +30,12 @@ https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e6
 
 ## Functionality:
 1. Communication Post functionality:
-  a. detects the cars at the Blue Line
-  b. communication post receives the cars destination
-  c. registers the car to the system and assigns the priority (First Come First Served)
-  d. communication post sets the speed of individual cars
+  - detects the cars at the Blue Line
+  - communication post receives the cars destination
+  - registers the car to the system and assigns the priority (First Come First Served)
+  - communication post sets the speed of individual cars
 
 2. Cars functionality:
-  a. once it comes into the system
-  b. all cars will have a prefixed projectory
+  - once it comes into the system
+  - all cars will have a prefixed projectory
 
