@@ -8,7 +8,7 @@ https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e6
 ### Road:
   - Must have stripes to lead the cars to their own trajectory
   - Must have a 4 way cross section
-  - Must have lanes wide enough to allow cars maneuvers
+  - Must have lanes wide enough to allow for basic car maneuvers
 ### Communication post:
   - Must communicate with multiple cars at the same time
   - Must set cars speed according to the destination and obstacles in the way
@@ -17,8 +17,8 @@ https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e6
 ### Cars:
   - Must be driven autonomously
   - Must follow a specific path from A to B
-  - Must communicate back to the communication post
-  - Must be able to follow a guide line printed on the road
+  - Must communicate with the communication post
+  - Must be able to make use of the lines on the road
 
 
 ### Other elements:
