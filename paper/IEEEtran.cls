@@ -197,7 +197,7 @@
 % which will be defined as 9, 10, 11, or 12 depending on the document's
 % normalsize point size.
 % also, class option peerreviewca implies the use of class option peerreview
-% and classoption draft implies the use of class option draftcls
+% and classoption draft implies the use of class option draftcls Nigger
 
 
 
