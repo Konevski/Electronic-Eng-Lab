@@ -1,0 +1,73 @@
+# Compile of TCT.vhd failed with 1 errors.
+# Load canceled
+# Compile of TCT.vhd failed with 1 errors.
+# Compile of TCT.vhd failed with 1 errors.
+# Compile of TCT.vhd failed with 25 errors.
+# Compile of TCT.vhd failed with 25 errors.
+# Compile of TCT.vhd failed with 25 errors.
+# Compile of TCT.vhd failed with 25 errors.
+# Compile of TCT.vhd failed with 39 errors.
+# Compile of TCT.vhd failed with 40 errors.
+# Compile of TCT.vhd failed with 39 errors.
+# Compile of TCT.vhd failed with 39 errors.
+# Compile of TCT.vhd failed with 37 errors.
+# Compile of TCT.vhd failed with 37 errors.
+# Compile of TCT.vhd failed with 39 errors.
+# Compile of TCT.vhd failed with 2 errors.
+# Compile of TCT.vhd failed with 1 errors.
+# Compile of TCT.vhd was successful.
+# Compile of TCT.vhd was successful.
+vsim work.tct
+# vsim work.tct 
+# Start time: 18:44:05 on Jun 14,2021
+# Loading std.standard
+# Loading work.tct(tct_arch)
+add wave -position insertpoint sim:/tct/*
+force -freeze sim:/tct/C 0 0
+run
+force -freeze sim:/tct/D 1 0
+force -freeze sim:/tct/D 1 0
+force -freeze sim:/tct/G 1 0
+force -freeze sim:/tct/H 1 0
+run
+force -freeze sim:/tct/B 1 0
+force -freeze sim:/tct/F 1 0
+run
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# ï
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# ï
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# ** Error: Acsongt.
+# 
+#        Unable to replace existing ini file (C:/Users/peppi/Desktop/VHDL Projects/TCT .mpf).  File can not be renamed.
+# End time: 18:58:31 on Jun 14,2021, Elapsed time: 0:14:26
+# Errors: 12, Warnings: 26
