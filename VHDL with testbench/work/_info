@@ -1,0 +1,30 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/peppi/Desktop/VHDL Projects/VHDL Code for Collision simulation
+Etct_tb
+w1624534748
+!i122 7
+R0
+8C:/Users/peppi/Desktop/VHDL Projects/VHDL Code for Collision simulation/Testbench.vhd
+FC:/Users/peppi/Desktop/VHDL Projects/VHDL Code for Collision simulation/Testbench.vhd
+l0
+L1 1
+VohzBZV=D5:S6G?Za>LfD61
+!s100 GMPCjmOAPFYc7L_9eiZc`0
+OV;C;2021.1;73
+32
+!s110 1624534840
+!i10b 1
+!s108 1624534840.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/peppi/Desktop/VHDL Projects/VHDL Code for Collision simulation/Testbench.vhd|
+!s107 C:/Users/peppi/Desktop/VHDL Projects/VHDL Code for Collision simulation/Testbench.vhd|
+!i113 1
+o-work work -2002 -explicit
+tExplicit 1 CvgOpt 0
