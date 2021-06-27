@@ -1,0 +1,7 @@
+{C:/Users/Vytaras/Desktop/DOCS/University/6th Semester/EE Lab/Resp/Electronic-Eng-Lab-master/ModelSIm Project/TCT.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Vytaras/Desktop/DOCS/University/6th Semester/EE Lab/Resp/Electronic-Eng-Lab-master/ModelSIm Project/TCT.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  3 2021
+-- Loading package STANDARD
+-- Compiling entity TCT
+-- Compiling architecture TCT_arch of TCT
+
+} {} {}}
