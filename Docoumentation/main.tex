@@ -59,17 +59,25 @@ In the problem analysis it is important to define what exactly is there to solve
 \section{First Approach: requirements}
 As a first approach, we came up with the idea of having a brain storming session in order to list all the possible requirements which will be part of the system. Properly dividing into thing main requirements and secondary ones. As our main requirements...
 
+
+
 \section{Modeling}
+
 \section{Implementation}
+
 \subsection{ModelSIM Implementation}
+
 \subsubsection{Concept Definition}
-Collision avoidance is a crucial part of this project, the most feasible way that will be presented is simply the implementation and creation of a hardware interface which will deal with input signals sent by the cars and output signals that will be handled in order to check whether there is a collision or not. With the help of VHDL the concept is simply put into code, the idea being to have cars sending a combination of 4-bit binary which will vary according to the direction. For our specific purpose we used the conventional cardinal directions, hence, if a car comes from north and has to go south the direction will be assessed as NS and its respective input sent will be "0000", shown next is the complete table with the corresponding directions assigned to the 4-bit combination.
 
 \begin{figure}[h]
     \centerline{\includegraphics[scale=0.5]{directions table.png}}
     \caption{cardinal directions table}
     \label{directions}
 \end{figure}
+
+Collision avoidance is a crucial part of this project, the most feasible way that will be presented is simply the implementation and creation of a hardware interface which will deal with input signals sent by the cars and output signals that will be handled in order to check whether there is a collision or not. With the help of VHDL the concept is simply put into code, the idea being to have cars sending a combination of 4-bit binary which will vary according to the direction (Figure \ref{directions}).
+
+For our specific purpose we used the conventional cardinal directions, hence, if a car comes from north and has to go south the direction will be assessed as NS and its respective input sent will be "0000", shown next is the complete table with the corresponding directions assigned to the 4-bit combination.
 
 This 4-bit combination will be handled by the algorithm developed in VHDL model sim and compared to another car`s direction in order to check for the collision. The table below will show all the possible collisions.
 
@@ -81,6 +89,7 @@ This 4-bit combination will be handled by the algorithm developed in VHDL model 
 
 Taking this specific concept of collision we noticed that we can simplify the output answers greatly, theoretically we could simplify the answers in three separate output blocks, but in order to have a much more simpler solution to VHDL, we just imagined the whole graph to be mirrored diagonally.
 
+
 \subsubsection{Code Implementation}
 
 When considering the required IO for our system, since the directions of each car will be represented by 4 bit system - we implemented 8 inputs in total, 4 bit directional representations for the two cars, which collision has to be checked. In terms of an output, we considered the most optimal solution is to have a single output, which would represent weather the collision is present or not.
@@ -89,15 +98,46 @@ Later on, we define all of the cardinal directions as signals, dedicating the 4 
 
 Finally, we represent the logic of the collision table to the VHDL by expressing solutions, when the main output is considered to be equals to one. For instance, taking a look at the Figure \ref{table} we see, that if the first car comes from west to south and the second car is coming from north to south, then our collision, in this term our output is one. This is done with a all of the cases, where the collision is considered to happen and as referred before, since the graph is repetitive, only half of the solutions have to be implemented. Hence having this defined concludes the code implementation of VHDL
 
-\subsubsection{ModelSIM results}
-
-
-
 \subsection{FreeRTOS Implementation}
+
+\subsubsection{The choice of FreeRTOS}
+
+When it comes to software implementation of this project, the most feasible decision was to use the open source FreeRTOS kernel and all its respective libraries. The kernel is mainly C based and it provides many useful and interesting functionalities linked to the implementation and development of real time systems under the software aspect. In our implementation we made use of the FreeRTOS to create our own scheduler which handles two separate Queues of entities. The entities which belong to our system are the cars which enters the system at any not given point in time. The idea is to register the cars as soon as they cross the first line present in the cross section, done so, the cars will be pushed into what we called "Unscheduled Queue". Since the cross section has only 4 lanes with a single line per direction, hence the highest possible number of cars which have to be registered at the same time is 4. The last mentioned case is also assumed to be a worst case scenario since in real life it could be rare to have such situation happening. To solve this problem we created a buffer which is making sure that within a certain time span, 50 ms was set for our scenario, the cars entering the system will be buffered accordingly and sorted into the unscheduled queue. After the scheduler performs some conditions checks in the queues it can finally decide to push the cars into the scheduled queue. At this point it will be needed to check whether the cars are free to go or a collision will happen with a different car in the same system. The detailed explanation of how the scheduling and queues work is handled in the next paragraphs.
+
+\subsubsection{Scheduling and queues}
+
+As already mentioned, two different queues are used in our software. In sequential order, the cars will be first handled and pushed into a buffer which will make sure we can register cars even with a small notice time. This means that if multiple cars cross the line at almost the same time point they will still be sorted inside the queue according to the registration time. For the case to be handled, we came up with the conclusion of using a simple FIFO algorithm, first in, first out, to get rid of the cars according to their arrival time. Now let us take into account a simple scenario in which two cars reach the initial line at t\textsubscript{1} = 12.4 s and t\textsubscript{2} = 12.7 s. In real life the difference will be almost unnoticeable but in a real time system the difference will be highly relevant, therefore setting a delay for the polling time equals to t\textsubscript{p} = 50 ms, makes sure that we can register cars that enter the system as long as the time difference is not smaller than 50 ms. The buffer can only contain maximum 4 cars (worst case scenario), which leads to a maximum buffer filling time of
+
+t\textsubscript{p}\textsuperscript{MAX} = 200 ms, and once it gets full, or the cars will pass through the second line, the information received will be pushed to the unscheduled queue and the buffer will be emptied and reset. From this point, 3 possible cases can happen:
+
+\begin{figure*}[ht]
+\centering{\includegraphics[scale=0.45]{TestBench_Results.png}}
+    \caption{Waveform of all of the possible outcomes of Traffic Controller}
+    \label{testbench}
+\end{figure*}
+
+\begin{enumerate}
+\item The cars will be assumed to need a certain amount of time before reaching the second line, hence, once they reach the line, the buffer will be emptied automatically and the cars moved to the scheduled queue.
+
+\item The buffer has been filled even before the first car registered crossed the second line, therefore the cars will be automatically pushed into the scheduled queue after a short time delay and the unscheduled queue will be emptied.
+
+\item A 5th car enters the system before the unscheduled queue is emptied, therefore the cars will be preemptively pushed into the scheduled queue and the unscheduled queue will be emptied to make space for the new cars registering, with a short time delay.
+\end{enumerate}
+
+By handling these 2 possible cases, we make sure that there will always be space for registering new cars approaching and, if no major accidents happen, the scheduler will keep doing its job periodically.
+A snippet of code will be shown below in order to understand how the algorithm formally works.
+[insert picture of scheduling algorithm]
+
+\subsubsection{Communication}
 
 
 
 \section{Simulation Results}
+
+\subsubsection{ModelSIM results}
+
+Considering the results of our already written VHDL representation of the collision checking, which we in the end decided to call - Traffic Controller, we noticed, that simulating the code itself, the answers were corresponding to the collision table and testing the inputs one by one, we saw that the code was working as it intended, but to represent all of the inputs correspondingly and truly showing, that the solution works, was not as easy we initially thought.
+
 
 
 \begin{thebibliography}{00}
