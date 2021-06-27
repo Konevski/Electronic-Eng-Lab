@@ -134,11 +134,13 @@ A snippet of code will be shown below in order to understand how the algorithm f
 
 \section{Simulation Results}
 
-\subsubsection{ModelSIM results}
+\subsection{ModelSIM results}
 
 Considering the results of our already written VHDL representation of the collision checking, which we in the end decided to call - Traffic Controller, we noticed, that simulating the code itself, the answers were corresponding to the collision table and testing the inputs one by one, we saw that the code was working as it intended, but to represent all of the inputs correspondingly and truly showing, that the solution works, was not as easy we initially thought.
 
+To really prove, that all of the collisions were realised in our system, we had to create a test-bench, which worked as follows: since single cars direction is represented with 4 unique inputs, one set of inputs were considered as a fixed value, while other set of inputs was running through all of the possible outcomes. After doing that we increase the value of the fixed set by one and run all of the possible outcomes with the other set again. This has been done throughout all of the values, which we use as directions, which means, that the combinations "1100", "1101", "1110", "1111" were not considered, but since the system is designed to output a 0 at all of the other undefined outputs, the outcome would just be 0 at the output through these values. Essentially we simulated all of the possible outcomes, shown in the Table \ref{table}, even considering the areas marked as "X".
 
+The exact simulation results of this described test-bench are shown in the Figure \ref{testbench}. Inputs from 'a' to 'd' in alphabetical order represent the change of the fixed sets values, when the inputs from 'e' to 'h' also in alphabetical order represent changing set of values. Variable 'x' is the output, which represents collision status, if it is equal to one - the collision is detected.
 
 \begin{thebibliography}{00}
 \bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
