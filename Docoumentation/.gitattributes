@@ -5,3 +5,6 @@ Sequence_diagram_init_comm.png filter=lfs diff=lfs merge=lfs -text
 TestBench_Results.png filter=lfs diff=lfs merge=lfs -text
 collision[[:space:]]table.png filter=lfs diff=lfs merge=lfs -text
 scenario.png filter=lfs diff=lfs merge=lfs -text
+redline[[:space:]]task.png filter=lfs diff=lfs merge=lfs -text
+resolver.png filter=lfs diff=lfs merge=lfs -text
+scheduler.png filter=lfs diff=lfs merge=lfs -text

@@ -159,7 +159,6 @@ When it comes to software implementation of this project, the most feasible deci
 \subsubsection{Scheduling and queues}
 
 As already mentioned, two different queues are used in our software. In sequential order, the cars will be first handled and pushed into a buffer which will make sure we can register cars even with a small notice time. This means that if multiple cars cross the line at almost the same time point they will still be sorted inside the queue according to the registration time. For the case to be handled, we came up with the conclusion of using a simple FIFO algorithm, first in, first out, to get rid of the cars according to their arrival time. Now let us take into account a simple scenario in which two cars reach the initial line at t\textsubscript{1} = 12.4 s and t\textsubscript{2} = 12.7 s. In real life the difference will be almost unnoticeable but in a real time system the difference will be highly relevant, therefore setting a delay for the polling time equals to t\textsubscript{p} = 50 ms, makes sure that we can register cars that enter the system as long as the time difference is not smaller than 50 ms. The buffer can only contain maximum 4 cars (worst case scenario), which leads to a maximum buffer filling time of
-
 t\textsubscript{p}\textsuperscript{MAX} = 200 ms, and once it gets full, or the cars will pass through the second line, the information received will be pushed to the unscheduled queue and the buffer will be emptied and reset. From this point, 3 possible cases can happen:
 
 \begin{enumerate}
@@ -172,9 +171,26 @@ t\textsubscript{p}\textsuperscript{MAX} = 200 ms, and once it gets full, or the 
 
 By handling these 2 possible cases, we make sure that there will always be space for registering new cars approaching and, if no major accidents happen, the scheduler will keep doing its job periodically.
 A snippet of code will be shown below in order to understand how the algorithm formally works.
-[insert picture of scheduling algorithm]
+\begin{figure}[h]
+\centering{\includegraphics[scale=0.35]{scheduler.png}}
+    \caption{Scheduler handling section of code}
+    \label{scheduler}
+\end{figure}
 
-\subsubsection{Communication}
+\subsubsection{Resolver and red line crossing tasks}
+Some extra tasks that helped the realization of the software, are respectively the resolver and red line crossing task. The red line crossing task is simply a task method which generates random cars to be added and registered within the system. They will be assigned a random ID, direction, poll time and a boolean value on a variable called "is-scheduled" to check whether the car has been already scheduled or not. The working principle is fairly easy to understand and it is shown below:
+\begin{figure}[h]
+\centering{\includegraphics[scale=0.37]{redline task.png}}
+    \caption{Simulating and generating car tasks at the redline}
+    \label{redline}
+\end{figure}
+
+Instead the resolver task handles the presumed collision of cars, since the whole project has been done virtually without the use of any physical hardware beside the PC, one of the main impediments was to create an interface between the hardware logic implemented in VHDL and the freeRTOS. The collision handled via software is simply comparing the polling times between cars entering the system at relatively close time and if the time is smaller than a given value then one of the two cars will be slowed down to avoid the collision. In a future implementation we would like to actually create our own interface to send the data from VHDL to freeRTOS via hardware and simulating the collisions handling properly. Below is a screenshot of the code part that handles the collisions.
+\begin{figure}[h]
+\centering{\includegraphics[scale=0.31]{resolver.png}}
+    \caption{Resolver task handling the collisions}
+    \label{resolver}
+\end{figure}
 
 
 
@@ -193,14 +209,21 @@ The exact simulation results of this described test-bench are shown in the Figur
     \label{testbench}
 \end{figure*}
 
+\subsection{Software FreeRTOS results}
+
+
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\bibitem{b1} 
+\bibitem{b2} 
+\bibitem{b3} 
+\bibitem{b4} 
+\bibitem{b5} 
+\bibitem{b6} 
+\bibitem{b7} 
 \end{thebibliography}
+
+\section{Affidavit}
+I, Giuseppe Scalora alongside with Vytaras Juraska, Adam Sulan and Gordan Konevski, herewith declare that we have composed the present paper and work by ourself and without use of any other than the cited sources and aids. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The paper and work in the same or similar form has not been submitted to any examination body and has not been published. This paper was not yet, even in part, used in another examination or as a course performance.
+
 
 \end{document}
