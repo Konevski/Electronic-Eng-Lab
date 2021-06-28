@@ -39,3 +39,13 @@ https://app.mural.co/t/linsko1708/m/linsko1708/1619081923307/a3a3d204ac605b3b9e6
   - once it comes into the system
   - all cars will have a prefixed projectory
 
+## Team contribution:
+
+Giuseppe Scalora: Modeling, Software implementation with FreeRTOS.
+
+Adam Sulak: Modeling, Software implementation with FreeRTOS.
+
+Vytaras Juraska: Modeling, Hardware implementation with VHDL.
+
+Gordan Konevski: Modeling, Hardware implementation with VHDL.
+
