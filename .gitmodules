@@ -1,0 +1,3 @@
+[submodule "Electronic-Eng-Lab-software"]
+	path = Electronic-Eng-Lab-software
+	url = git@github.com:Adaskos07/Electronic-Eng-Lab-software.git
