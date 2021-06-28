@@ -9,6 +9,7 @@
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\bibliographystyle{IEEEtran}
 \begin{document}
 
 \title{Automated 4-Way-Road Cross Section}
@@ -186,7 +187,7 @@ Some extra tasks that helped the realization of the software, are respectively t
     \label{redline}
 \end{figure}
 
-Instead the resolver task handles the presumed collision of cars, since the whole project has been done virtually without the use of any physical hardware beside the PC, one of the main impediments was to create an interface between the hardware logic implemented in VHDL and the freeRTOS. The collision handled via software is simply comparing the polling times between cars entering the system at relatively close time and if the time is smaller than a given value then one of the two cars will be slowed down to avoid the collision. In a future implementation we would like to actually create our own interface to send the data from VHDL to freeRTOS via hardware and simulating the collisions handling properly. Below is a screenshot of the code part that handles the collisions.
+Instead the resolver task handles the presumed collision of cars, since the whole project has been done virtually without the use of any physical hardware beside the PC, one of the main impediments was to create an interface between the hardware logic implemented in VHDL and the freeRTOS. The collision handled via software is simply comparing the polling times between cars entering the system at relatively close time and if the time is smaller than a given value then one of the two cars will be slowed down to avoid the collision. In a future implementation we would like to actually create our own interface to send the data from VHDL to freeRTOS via hardware and simulating the collisions handling properly. Below is a screenshot of the code part that handles the collisions \cite{b1}\cite{b2}.
 \begin{figure}[h]
 \centering{\includegraphics[scale=0.31]{resolver.png}}
     \caption{Resolver task handling the collisions}
@@ -221,17 +222,14 @@ For the FreeRTOS code simulation, the whole team agreed on using Visual Studio C
 \end{figure}
 
 \section{Conclusion}
-In this paper we discussed our theoretical approach towards the problem of automating a four way cross-road section and showed our solution for the implementation via the use of ModelSIM, in terms of hardware handling and FreeRTOS Kernel related to the software management and development. The results obtained fulfilled the requirements defined in the beginning of the whole project while leaving some room for further improvements and future implementations. 
+In this paper we discussed our theoretical approach towards the problem of automating a four way cross-road section and showed our solution for the implementation via the use of ModelSIM, in terms of hardware handling and FreeRTOS Kernel related to the software management and development. The results obtained fulfilled the requirements defined in the beginning of the whole project while leaving some room for further improvements and future implementations.
 
-\begin{thebibliography}{00}
-\bibitem{b1} 
-\bibitem{b2} 
-\bibitem{b3} 
-\bibitem{b4} 
-\bibitem{b5} 
-\bibitem{b6} 
-\bibitem{b7} 
+\begin{thebibliography} {00}
+\bibitem{b1} Barry, R. "Mastering the FreeRTOSTM Real Time Kernel, A Hands-On Tutorial Guide." sl]: Real Time Engineers Ltd., 2016c. Resource Management (2016): 233-264.
+\bibitem{b2} FreeRTOS - Market leading RTOS (Real Time Operating System) for embedded systems with Internet of Things extensions. (2021, May 12). FreeRTOS. https://www.freertos.org/
 \end{thebibliography}
+
+
 
 \section{Affidavit}
 I, Giuseppe Scalora alongside with Vytaras Juraska, Adam Sulan and Gordan Konevski, herewith declare that we have composed the present paper and work by ourself and without use of any other than the cited sources and aids. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The paper and work in the same or similar form has not been submitted to any examination body and has not been published. This paper was not yet, even in part, used in another examination or as a course performance.
