@@ -43,7 +43,7 @@ adam.sulak@stud.hshl.de}
 \maketitle
 
 \begin{abstract}
-
+The focus of this paper will describe the procedural steps presented in order to develop a fully automated control system for a 4 way cross-road section. Firstly the motivation and the problem will be discussed with a fair analysis on what is there to be solved. Afterwards all the requirements that need to be met, will be listed and described accordingly. The implementation part will be split into two separate sections in order to differentiate the hardware implementation from the software implementation, both respectively realized with the use of 2 different means, ModelSIM and the FreeRTOS kernel, including all its libraries.
 \end{abstract}
 
 \section{Introduction}
@@ -56,8 +56,8 @@ The purpose defined for this scope deals with the search and development of a so
 \section{Analysis of the problem}
 In the problem analysis it is important to define what exactly is there to solve and develop. In order to understand this, it is helpful to take a look at how a real life cross-section behaves and looks like. The main concern is how to accept and register cars that wants to enter the system and how to lead them safely to the exit of the section. For this purpose a queuing system has to be implemented, taking care of handling stacking cars entering the cross-section afterwards, to dispatch every single car, a collision avoidance system must be developed which will help to not let the car "crash" nor overdrive on some other car`s path. In the end every single car has to be dispatched and assigned a priority according to their own arrival time, therefore a scheduling algorithm has to be included.
 
-\section{Requirements}
-Before any other precedents are set, it is crucial to define and delineate the specific requirements that the project must meet, which will be divided in three parts:
+\section{Requirements and modeling}
+Before any other precedents are set, it is crucial to define and delineate the specific requirements that the project must meet, alongside with their respective modeling, which will be divided in three parts:
 \begin{itemize}
 	\item Environmental Requirements
 	\item Technical Requirements
@@ -114,9 +114,6 @@ Once the attributes have been received by the communication box, the vehicle pro
 	\centering
 \end{figure}
 
-
-
-\section{Modeling}
 
 \section{Implementation}
 
