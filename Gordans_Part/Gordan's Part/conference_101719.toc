@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {I}Introduction}{1}%
+\contentsline {section}{\numberline {II}OSI 7 Layer Model}{1}%
+\contentsline {subsection}{\numberline {\mbox {II-A}}Network Layer}{1}%
+\contentsline {subsection}{\numberline {\mbox {II-B}}Internet Layer}{2}%
+\contentsline {subsection}{\numberline {\mbox {II-C}}Transport Layer}{2}%
+\contentsline {subsection}{\numberline {\mbox {II-D}}Application Layer}{2}%
+\contentsline {section}{\numberline {III}Basic Overview}{2}%
+\contentsline {subsection}{\numberline {\mbox {III-A}}Half Duplex}{2}%
+\contentsline {subsection}{\numberline {\mbox {III-B}}Full Duplex}{2}%
+\contentsline {section}{\numberline {IV}Technicalities}{2}%
+\contentsline {subsection}{\numberline {\mbox {IV-A}}Virtual MAC Addresses}{2}%
+\contentsline {subsection}{\numberline {\mbox {IV-B}}A Point on the Unique Practicality of Ethernet}{3}%
+\contentsline {section}{\numberline {V}Communication Methods}{3}%
+\contentsline {section}{\numberline {VI}Frame Structure}{3}%
+\contentsline {section}{\numberline {VII}Time-Triggered Ethernet}{4}%
+\contentsline {section}{\numberline {VIII}The Purpose Behind TTEthernet}{4}%
+\contentsline {section}{\numberline {IX}TTEthernet Properties}{5}%
+\contentsline {subsection}{\numberline {\mbox {IX-A}}Temporal Partitioning}{5}%
+\contentsline {subsection}{\numberline {\mbox {IX-B}}Resource Utilization}{5}%
+\contentsline {subsection}{\numberline {\mbox {IX-C}}Precise Diagnosis}{5}%
+\contentsline {subsection}{\numberline {\mbox {IX-D}}Composability}{5}%
+\contentsline {section}{\numberline {X}Examples of TTEthernet in Practice}{5}%
+\contentsline {subsection}{\numberline {\mbox {X-A}}Transparent Clock Mechanism}{5}%
+\contentsline {subsection}{\numberline {\mbox {X-B}}Permanence Point in Time}{5}%
+\contentsline {section}{\numberline {XI}Final Remarks}{6}%
+\contentsline {section}{References}{7}%
