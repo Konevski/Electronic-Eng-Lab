@@ -211,6 +211,12 @@ The exact simulation results of this described test-bench are shown in the Figur
 
 \subsection{Software FreeRTOS results}
 
+For the FreeRTOS code simulation, the whole team agreed on using Visual Studio Code as a mean of compiling and executing the software. The libraries belonging to the FreeRTOS Kernel have been added and stored in the submodule of our GitHub page. The simulation ran on the software, aims to show how all the tasks together work accordingly, inside a main.c file which contains all the external defined methods, and shows what happens when the system is initialized, hence the first tasks of nature "car" are generated and therefore reach the system. In this specific example 4 cars are randomly created and then pushed to the scheduled queue, through the buffer modeled in the implementation, in real time there are also occurrencies of other cars being generated which will properly be handled by our scheduler in the correct arrival order. Another important detail which can be seen from the results is the allowance of cars through the system or the inability to cross because there is a risk of collision. As you can see from the figure, when 4 cars have been received the buffer will automatically be refreshed to make space for other incoming cars. Until the very end of the code it is noticeable how the tasks are handled periodically and nicely interrupted if another task of nature "car" is generated.
+\begin{figure}[h]
+\centering{\includegraphics[scale=0.4]{software-results.png}}
+    \caption{A running simulation of the code}
+    \label{freertos-sim}
+\end{figure}
 
 \begin{thebibliography}{00}
 \bibitem{b1} 
