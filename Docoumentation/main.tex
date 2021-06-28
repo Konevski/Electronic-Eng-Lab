@@ -177,6 +177,7 @@ A snippet of code will be shown below in order to understand how the algorithm f
     \label{scheduler}
 \end{figure}
 
+
 \subsubsection{Resolver and red line crossing tasks}
 Some extra tasks that helped the realization of the software, are respectively the resolver and red line crossing task. The red line crossing task is simply a task method which generates random cars to be added and registered within the system. They will be assigned a random ID, direction, poll time and a boolean value on a variable called "is-scheduled" to check whether the car has been already scheduled or not. The working principle is fairly easy to understand and it is shown below:
 \begin{figure}[h]
@@ -202,21 +203,25 @@ Considering the results of our already written VHDL representation of the collis
 
 To really prove, that all of the collisions were realised in our system, we had to create a test-bench, which worked as follows: since single cars direction is represented with 4 unique inputs, one set of inputs were considered as a fixed value, while other set of inputs was running through all of the possible outcomes. After doing that we increase the value of the fixed set by one and run all of the possible outcomes with the other set again. This has been done throughout all of the values, which we use as directions, which means, that the combinations "1100", "1101", "1110", "1111" were not considered, but since the system is designed to output a 0 at all of the other undefined outputs, the outcome would just be 0 at the output through these values. Essentially we simulated all of the possible outcomes, shown in the Table \ref{table}, even considering the areas marked as "X".
 
-The exact simulation results of this described test-bench are shown in the Figure \ref{testbench}. Inputs from 'a' to 'd' in alphabetical order represent the change of the fixed sets values, when the inputs from 'e' to 'h' also in alphabetical order represent changing set of values. Variable 'x' is the output, which represents collision status, if it is equal to one - the collision is detected.
 \begin{figure*}[ht]
 \centering{\includegraphics[scale=0.45]{TestBench_Results.png}}
     \caption{Waveform of all of the possible outcomes of Traffic Controller}
     \label{testbench}
 \end{figure*}
 
+The exact simulation results of this described test-bench are shown in the Figure \ref{testbench}. Inputs from 'a' to 'd' in alphabetical order represent the change of the fixed sets values, when the inputs from 'e' to 'h' also in alphabetical order represent changing set of values. Variable 'x' is the output, which represents collision status, if it is equal to one - the collision is detected.
+
 \subsection{Software FreeRTOS results}
 
-For the FreeRTOS code simulation, the whole team agreed on using Visual Studio Code as a mean of compiling and executing the software. The libraries belonging to the FreeRTOS Kernel have been added and stored in the submodule of our GitHub page. The simulation ran on the software, aims to show how all the tasks together work accordingly, inside a main.c file which contains all the external defined methods, and shows what happens when the system is initialized, hence the first tasks of nature "car" are generated and therefore reach the system. In this specific example 4 cars are randomly created and then pushed to the scheduled queue, through the buffer modeled in the implementation, in real time there are also occurrencies of other cars being generated which will properly be handled by our scheduler in the correct arrival order. Another important detail which can be seen from the results is the allowance of cars through the system or the inability to cross because there is a risk of collision. As you can see from the figure, when 4 cars have been received the buffer will automatically be refreshed to make space for other incoming cars. Until the very end of the code it is noticeable how the tasks are handled periodically and nicely interrupted if another task of nature "car" is generated.
+For the FreeRTOS code simulation, the whole team agreed on using Visual Studio Code as a mean of compiling and executing the software. The libraries belonging to the FreeRTOS Kernel have been added and stored in the submodule of our GitHub page. The simulation ran on the software, aims to show how all the tasks together work accordingly, inside a main.c file which contains all the external defined methods, and shows what happens when the system is initialized, hence the first tasks of nature "car" are generated and therefore reach the system. In this specific example 4 cars are randomly created and then pushed to the scheduled queue, through the buffer modeled in the implementation, in real time there are also occurrencies of other cars being generated which will properly be handled by our scheduler in the correct arrival order. Another important detail which can be seen from the results is the allowance of cars through the system or the inability to cross because there is a risk of collision. As you can see from the figure, when 4 cars have been received the buffer will automatically be refreshed to make space for other incoming cars. Until the very end of the code it is noticeable how the tasks are handled periodically and nicely interrupted if another task of nature "car" is generated. The actual terminal output is shown in Figure \ref{freertos-sim}.
 \begin{figure}[h]
 \centering{\includegraphics[scale=0.4]{software-results.png}}
     \caption{A running simulation of the code}
     \label{freertos-sim}
 \end{figure}
+
+\section{Conclusion}
+In this paper we discussed our theoretical approach towards the problem of automating a four way cross-road section and showed our solution for the implementation via the use of ModelSIM, in terms of hardware handling and FreeRTOS Kernel related to the software management and development. The results obtained fulfilled the requirements defined in the beginning of the whole project while leaving some room for further improvements and future implementations. 
 
 \begin{thebibliography}{00}
 \bibitem{b1} 
